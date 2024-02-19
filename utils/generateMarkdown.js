@@ -31,7 +31,7 @@ function renderLicenseSection(license) {
     'GPLv3': 'This project is licensed under the GNU GPLv3 license.',
     'BSD 3-Clause': 'This project is licensed under the BSD 3-Clause license.'
   };
-  return license !== 'None' ? `## Licnese\n\n${licenseText[license]}\n` : '';
+  return license !== 'None' ? `## License\n\n${licenseText[license]}\n` : '';
 }
 
 // TODO: Create a function to generate markdown for README
@@ -56,8 +56,11 @@ function generateMarkdown(data) {
   ## Usage 
   ${data.usage}
 
-  ## Credits
-  ${data.credits}
+  ## Contributing
+  ${data.contributing}
+
+  ## Tests
+  ${data.tests}
 
  ${renderLicenseSection(data.license)}
 
