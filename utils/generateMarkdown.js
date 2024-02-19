@@ -19,19 +19,29 @@ function renderLicenseLink(license) {
     'GPLv3': 'https://www.gnu.org/licenses/gpl-3.0',
     'BSD 3-Clause': 'https://opensource.org/licenses/BSD-3-Clause'
   };
-  return license !== 'None' ? `* [License](#license)` : '';
+  return license !== 'None' ? `[License](${licenseLinks[license]})` : '';
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
+  // Use the other functions to get the badge and link
+  const badge = renderLicenseBadge(license);
+  const link = renderLicenseLink(license);
+
   const licenseText = {
     'MIT': 'This project is licensed under the MIT License.',
     'Apache 2.0': 'This project is licensed under the Apache 2.0 license.',
     'GPLv3': 'This project is licensed under the GNU GPLv3 license.',
     'BSD 3-Clause': 'This project is licensed under the BSD 3-Clause license.'
   };
-  return license !== 'None' ? `## License\n\n${licenseText[license]}\n` : '';
+
+  // Check if a license has been chosen and return the formatted section
+  if (license !== 'None') {
+    return `## License\n${badge}\n\n${licenseText[license]}\n\nFor more information about the license, please visit ${link}.`;
+  }
+
+  return '';
 }
 
 // TODO: Create a function to generate markdown for README
@@ -47,7 +57,7 @@ function generateMarkdown(data) {
   - [Usage](#usage)
   - [Contributing](#contributing)
   - [Tests](#tests)
-  ${renderLicenseLink(data.license)}
+  - [License](#license)
   - [Questions](#questions)
 
   ## Installation 
@@ -61,13 +71,13 @@ function generateMarkdown(data) {
 
   ## Tests
   ${data.tests}
-
- ${renderLicenseSection(data.license)}
-
- ## Questions
- For any questions, please contact me with the information below.
- GitHub: [${data.github}](https://github.com/${data.github})
- Email: [${data.email}](mailto:${data.email})`;
+  
+  ${renderLicenseSection(data.license)}
+  
+  ## Questions
+  For any questions, please contact me with the information below.\n
+  GitHub: [${data.github}](https://github.com/${data.github})\n
+  Email: [${data.email}](mailto:${data.email})`;
 }
 
 module.exports = generateMarkdown;

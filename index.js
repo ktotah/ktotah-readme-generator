@@ -52,9 +52,9 @@ const questions = [
     {
         type: 'input',
         name: 'github',
-        message: 'Enter your GitHub username:'
+        message: 'Enter your GitHub username: @'
     },
-    // questoin for email (for QUESTIONS section)
+    // question for email (for QUESTIONS section)
     {
         type: 'input',
         name: 'email',
