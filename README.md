@@ -26,7 +26,7 @@ To use the README Generator:
 
 1. Ensure Node.js is installed on your machine.
 2. Clone the repository to your local machine: `git clone https://github.com/ktotah/ktotah-readme-generator.git`.
-3. Navigate to the project directory in your terminal: `cd README-Generator`.
+3. Navigate to the project directory in your terminal.
 4. Install the necessary dependencies by running: `npm install inquirer@8.2.4` in your terminal.
 5. Confirm you are now set up with Inquirer version 8.2.4 by running the command: `npm list inquirer` to see the installed version of Inquirer within your project. If it returns `inquirer@8.2.4`, then the installation process is complete.
 
